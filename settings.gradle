@@ -1,1 +1,1 @@
-include ':app', ':statuslib'
+include ':simple', ':statuslib'
