@@ -13,7 +13,7 @@ public class StatusUtil {
 
     /**
      * Setting the status bar color.
-     * It must be more than 20 to be valid.
+     * It must be more than 21(5.0) to be valid.
      */
     public static void setUseStatusBarColor(Activity activity, int color) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
