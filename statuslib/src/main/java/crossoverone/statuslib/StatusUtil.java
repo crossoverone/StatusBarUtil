@@ -46,13 +46,13 @@ public class StatusUtil {
      */
     public static void setSystemStatus(Activity activity, boolean isTransparent, boolean isBlack) {
         int flag = 0;
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.JELLY_BEAN && isTransparent) {
             // after 16(4.1)
-            flag |= isTransparent ? View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN : 0;
+            flag |= View.SYSTEM_UI_FLAG_LAYOUT_FULLSCREEN;
         }
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M && isBlack) {
             // after 23(6.0)
-            flag |= isBlack ? View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR : 0;
+            flag |= View.SYSTEM_UI_FLAG_LIGHT_STATUS_BAR;
         }
         activity.getWindow().getDecorView().setSystemUiVisibility(flag);
 
