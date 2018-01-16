@@ -4,8 +4,37 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="#550000">
+    android:background="#996688">
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="设置沉侵"
+        android:onClick="btn1"/>
 
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="不要沉侵"
+        android:onClick="btn2"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="字体变黑"
+        android:onClick="btn3"/>
+
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="字体变白"
+        android:onClick="btn4"/>
+
+    <SeekBar
+        android:id="@+id/progpress1"
+        android:layout_width="match_parent"
+        android:layout_height="15dp"
+        android:layout_marginTop="25dp"
+        style="@style/Base.Widget.AppCompat.ProgressBar.Horizontal"/>
 
 </LinearLayout>

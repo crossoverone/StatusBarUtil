@@ -1,4 +1,4 @@
-package crossoverone.statusutil;
+package crossoverone.activity;
 
 import org.junit.Test;
 

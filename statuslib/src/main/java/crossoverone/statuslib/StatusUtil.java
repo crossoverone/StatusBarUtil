@@ -4,6 +4,7 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
+import android.support.annotation.ColorInt;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
@@ -69,7 +70,7 @@ public class StatusUtil {
      *
      * @return Status bar height if it is not equal to -1,
      */
-    public static int getStatusHeight(Context context) {
+    public static int getStatusBarHeight(Context context) {
         int statusBarHeight2 = -1;
         try {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
@@ -80,5 +81,14 @@ public class StatusUtil {
             e.printStackTrace();
         }
         return statusBarHeight2;
+    }
+
+    /**
+     * Set bottom navigation bar color
+     */
+    public static void setNavigationBar(Activity activity, @ColorInt int color) {
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+            activity.getWindow().setNavigationBarColor(color);
+        }
     }
 }

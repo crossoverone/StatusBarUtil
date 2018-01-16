@@ -1,4 +1,4 @@
-package crossoverone.statusutil;
+package crossoverone.activity;
 
 import android.content.Context;
 import android.support.test.InstrumentationRegistry;
