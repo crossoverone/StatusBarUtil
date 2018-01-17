@@ -27,8 +27,8 @@
 	        	super.onCreate(savedInstanceState);
 			...
 	        	setContentView(R.layout.activity_main);
-			StatusUtil.setTransparentStatusBar(this);// 沉侵式需要设置透明状态栏
-			StatusUtil.setSystemStatus(this, false, true);// 第二个参数是是否沉侵,第三个参数是状态栏字体是否为黑色
+			StatusUtil.setTransparentStatusBar(this);// 沉浸式需要设置透明状态栏
+			StatusUtil.setSystemStatus(this, false, true);// 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色
 			...
 	    	}
 		...
@@ -44,7 +44,7 @@
 			...
 	        	setContentView(getLayoutRes());
 			setStatusTransparent();
-			//默认非沉侵,状态栏颜色值#878787,字体颜色为黑色
+			//默认非沉浸,状态栏颜色值#878787,字体颜色为黑色
 			setStatusColor();
 			setSystemInvadeBlack();
 			...
@@ -60,7 +60,7 @@
 	    	}
 		...
 		protected void setSystemInvadeBlack() {
-			// 第二个参数是是否沉侵,第三个参数是状态栏字体是否为黑色
+			// 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色
 			StatusUtil.setSystemStatus(this, false, true);
 	    	}
 		...
@@ -77,7 +77,7 @@
 		...
 		@Override
 		protected void setSystemInvadeBlack() {
-			// 第二个参数是是否沉侵,第三个参数是状态栏字体是否为黑色
+			// 第二个参数是是否沉浸,第三个参数是状态栏字体是否为黑色
 			StatusUtil.setSystemStatus(this, true, false);
 	    	}
 		...
