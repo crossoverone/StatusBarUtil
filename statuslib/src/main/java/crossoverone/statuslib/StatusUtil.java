@@ -12,24 +12,49 @@ import android.view.WindowManager;
 
 public class StatusUtil {
 
+    public static final int USE_DEFAULT_COLOR = -1;
+    public static final int USE_CUR_COLOR = -2;
+
+    /**
+     * Default status bar color between 21(5.0) and 23(6.0).
+     * If status color is white, you can set the color outermost.
+     * */
+    public static int defaultColor_21 = Color.parseColor("#33000000");
+
     /**
      * Setting the status bar color.
      * It must be more than 21(5.0) to be valid.
+     *
+     * @param color Status color.
      */
-    public static void setUseStatusBarColor(Activity activity, int color) {
+    public static void setUseStatusBarColor(Activity activity, @ColorInt int color) {
+        setUseStatusBarColor(activity, color, USE_CUR_COLOR);
+    }
+
+    /**
+     * It must be more than 21(5.0) to be valid.
+     * Setting the status bar color.Supper between 21 and 23.
+     *
+     * @param color         Status color.
+     * @param surfaceColor  Between 21 and 23,if surfaceColor == USE_DEFAULT_COLOR,the status color is defaultColor_21,
+     *                      else if surfaceColor == USE_CUR_COLOR, the status color is color,
+     *                      else the status color is surfaceColor.
+     */
+    public static void setUseStatusBarColor(Activity activity, @ColorInt int color, int surfaceColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            activity.getWindow().setStatusBarColor(color);
+            activity.getWindow().setStatusBarColor((Build.VERSION.SDK_INT >= Build.VERSION_CODES.M || (surfaceColor == USE_CUR_COLOR)) ? color : surfaceColor == USE_DEFAULT_COLOR ? defaultColor_21 : surfaceColor);
         }
     }
 
     /**
      * Setting the status bar transparently.
      */
+    @Deprecated
     public static void setTransparentStatusBar(Activity activity) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // after 21(5.0)
             setUseStatusBarColor(activity, Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
             // between 19(4.4) and 21(5.0)
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
@@ -59,6 +84,11 @@ public class StatusUtil {
 
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && Build.VERSION.SDK_INT < Build.VERSION_CODES.LOLLIPOP) {
             // between 19(4.4) and 21(5.0)
+            if (isTransparent) {
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            }else {
+                activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            }
             ViewGroup contentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
             View childAt = contentView.getChildAt(0);
             childAt.setFitsSystemWindows(!isTransparent);
@@ -71,16 +101,30 @@ public class StatusUtil {
      * @return Status bar height if it is not equal to -1,
      */
     public static int getStatusBarHeight(Context context) {
-        int statusBarHeight2 = -1;
+        return getSizeByReflection(context, "status_bar_height");
+    }
+
+
+    /**
+     * Get the height of the state bar by reflection.
+     *
+     * @return Status bar height if it is not equal to -1,
+     */
+    public static int getNavigationBarHeight(Context context) {
+        return getSizeByReflection(context, "navigation_bar_height");
+    }
+
+    public static int getSizeByReflection(Context context, String field) {
+        int size = -1;
         try {
             Class<?> clazz = Class.forName("com.android.internal.R$dimen");
             Object object = clazz.newInstance();
-            int height = Integer.parseInt(clazz.getField("status_bar_height").get(object).toString());
-            statusBarHeight2 = context.getResources().getDimensionPixelSize(height);
+            int height = Integer.parseInt(clazz.getField(field).get(object).toString());
+            size = context.getResources().getDimensionPixelSize(height);
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return statusBarHeight2;
+        return size;
     }
 
     /**

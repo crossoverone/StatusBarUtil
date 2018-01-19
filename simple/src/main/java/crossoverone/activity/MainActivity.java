@@ -1,6 +1,7 @@
 package crossoverone.activity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentPagerAdapter;
@@ -28,7 +29,7 @@ public class MainActivity extends BaseActivity {
 
     @Override
     protected void setStatus() {
-        StatusUtil.setTransparentStatusBar(this);
+        StatusUtil.setUseStatusBarColor(this, Color.parseColor("#00000000"), StatusUtil.USE_DEFAULT_COLOR);
         StatusUtil.setSystemStatus(this, true, isBlack);
     }
 
@@ -60,8 +61,6 @@ public class MainActivity extends BaseActivity {
             public void onDrawerStateChanged(int newState) {
             }
         });
-
-
         initVp();
     }
 

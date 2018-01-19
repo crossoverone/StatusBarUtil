@@ -1,5 +1,6 @@
 package crossoverone.activity;
 
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
@@ -24,7 +25,7 @@ public abstract class  BaseActivity extends AppCompatActivity {
     protected abstract void initView();
 
     protected void setStatus() {
-        StatusUtil.setTransparentStatusBar(this);
+        StatusUtil.setUseStatusBarColor(this, Color.TRANSPARENT, StatusUtil.USE_DEFAULT_COLOR);
         StatusUtil.setSystemStatus(this, false, true);
     }
 

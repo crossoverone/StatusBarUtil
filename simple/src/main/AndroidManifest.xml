@@ -17,7 +17,8 @@
             </intent-filter>
         </activity>
 
-        <activity android:name="crossoverone.activity.FirstActivity"/>
+        <activity android:name="crossoverone.activity.FirstActivity"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 
 </manifest>

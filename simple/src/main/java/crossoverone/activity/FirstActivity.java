@@ -7,7 +7,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.SeekBar;
 
+import crossoverone.statuslib.AndroidBug5497Workaround;
 import crossoverone.statuslib.StatusUtil;
+
 
 /**
  * Created by Administrator on 2018/1/15.
@@ -22,7 +24,9 @@ public class FirstActivity extends AppCompatActivity{
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_first);
-        StatusUtil.setTransparentStatusBar(this);
+
+        AndroidBug5497Workaround.assistActivity(this);
+        StatusUtil.setUseStatusBarColor(this, Color.parseColor("#ff0000"), StatusUtil.USE_CUR_COLOR);
 
         mProgressBar1 = (SeekBar) findViewById(R.id.progpress1);
 
@@ -66,5 +70,15 @@ public class FirstActivity extends AppCompatActivity{
     public void btn4(View view) {
         frontBlack = false;
         StatusUtil.setSystemStatus(this, invade, frontBlack);
+    }
+
+    public void btn5(View view) {
+        // 6.0 以下有用
+        StatusUtil.setUseStatusBarColor(this, Color.parseColor("#ff0000"), StatusUtil.USE_DEFAULT_COLOR);
+    }
+
+    public void btn6(View view) {
+        // 6.0 以下有用
+        StatusUtil.setUseStatusBarColor(this, Color.parseColor("#ff0000"), StatusUtil.USE_CUR_COLOR);
     }
 }
