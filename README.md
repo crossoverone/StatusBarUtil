@@ -14,7 +14,7 @@
 
 ### 2.module的gradle ###
 	dependencies {
-	        compile 'com.github.crossoverone:StatusUtil:1.2'
+	        compile 'com.github.crossoverone:StatusBarUtil:1.3'
 	}
 
 
