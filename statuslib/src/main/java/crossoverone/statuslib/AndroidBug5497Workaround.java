@@ -53,6 +53,11 @@ public class AndroidBug5497Workaround {
                 // keyboard probably just became hidden
                 frameLayoutParams.height = height + addedStatusHeight;
             }
+
+            if (frameLayoutParams.height > mChildOfContent.getRootView().getHeight()) {
+                frameLayoutParams.height = mChildOfContent.getRootView().getHeight();
+            }
+
             mChildOfContent.requestLayout();
             usableHeightPrevious = usableHeightNow;
         }
