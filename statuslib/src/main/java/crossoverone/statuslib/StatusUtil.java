@@ -12,7 +12,10 @@ import android.view.WindowManager;
 
 public class StatusUtil {
 
+    /** Use default color {@link #defaultColor_21} between 5.0 and 6.0.*/
     public static final int USE_DEFAULT_COLOR = -1;
+
+    /** Use color {@link #setUseStatusBarColor} between 5.0 and 6.0.*/
     public static final int USE_CUR_COLOR = -2;
 
     /**
@@ -36,8 +39,8 @@ public class StatusUtil {
      * Setting the status bar color.Supper between 21 and 23.
      *
      * @param color         Status color.
-     * @param surfaceColor  Between 21 and 23,if surfaceColor == USE_DEFAULT_COLOR,the status color is defaultColor_21,
-     *                      else if surfaceColor == USE_CUR_COLOR, the status color is color,
+     * @param surfaceColor  Between 21 and 23,if surfaceColor == {@link #USE_DEFAULT_COLOR},the status color is defaultColor_21,
+     *                      else if surfaceColor == {@link #USE_CUR_COLOR}, the status color is color,
      *                      else the status color is surfaceColor.
      */
     public static void setUseStatusBarColor(Activity activity, @ColorInt int color, int surfaceColor) {
@@ -48,6 +51,7 @@ public class StatusUtil {
 
     /**
      * Setting the status bar transparently.
+     * See {@link #setUseStatusBarColor}.
      */
     @Deprecated
     public static void setTransparentStatusBar(Activity activity) {
