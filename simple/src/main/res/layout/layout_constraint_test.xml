@@ -1,0 +1,535 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:overScrollMode="never"
+    android:scrollbars="none"
+    >
+
+    <android.support.constraint.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#FFFFFF">
+
+        <!-- 头部 （start）-->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_bg"
+            android:layout_width="match_parent"
+            android:layout_height="106dp"
+            android:background="#F37D0F"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_portrait"
+            android:layout_width="49dp"
+            android:layout_height="49dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="40dp"
+            android:src="#80B548"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_bg"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:text="1264637837"
+            android:textColor="#FEF2D8"
+            app:layout_constraintBottom_toBottomOf="@id/img_bg"
+            app:layout_constraintStart_toEndOf="@id/img_portrait"
+            app:layout_constraintTop_toTopOf="@id/img_bg"
+            app:layout_constraintVertical_bias="0.625"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/txt_msg"
+            android:layout_width="22dp"
+            android:layout_height="22dp"
+            android:layout_marginEnd="10dp"
+            android:layout_marginTop="26dp"
+            android:src="#80B548"
+            app:layout_constraintEnd_toEndOf="@id/img_bg"
+            app:layout_constraintTop_toTopOf="@id/img_bg"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_vip"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="#FBD34B"
+            android:gravity="center_vertical|end"
+            android:paddingBottom="4dp"
+            android:paddingEnd="15dp"
+            android:paddingStart="34dp"
+            android:paddingTop="4dp"
+            android:text="会员积分"
+            android:textColor="#B06713"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_bg"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.725"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_vip"
+            android:layout_width="15dp"
+            android:layout_height="14dp"
+            android:layout_marginStart="12dp"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/txt_vip"
+            app:layout_constraintStart_toStartOf="@id/txt_vip"
+            app:layout_constraintTop_toTopOf="@id/txt_vip"
+            />
+        <!-- 头部 （end）-->
+
+        <!-- 第二部分(start) -->
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="14dp"
+            android:layout_marginTop="13dp"
+            android:text="我的订单"
+            android:textColor="#000"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_bg"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_order"
+            android:layout_width="8dp"
+            android:layout_height="13dp"
+            android:layout_marginEnd="14dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_order"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/txt_order"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order_all"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="9dp"
+            android:layout_marginStart="14dp"
+            android:text="全部订单"
+            android:textSize="13sp"
+            app:layout_constraintBottom_toBottomOf="@id/txt_order"
+            app:layout_constraintEnd_toStartOf="@id/img_order"
+            app:layout_constraintTop_toTopOf="@id/txt_order"
+            />
+
+        <View
+            android:id="@+id/line1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="13dp"
+            android:background="#e7e7e7"
+            app:layout_constraintTop_toBottomOf="@id/txt_order"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_order_pay"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginStart="33dp"
+            android:layout_marginTop="27dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintEnd_toStartOf="@id/img_order_gain"
+            app:layout_constraintHorizontal_chainStyle="spread_inside"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line1"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order_pay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="待付款"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/img_order_pay"
+            app:layout_constraintStart_toStartOf="@id/img_order_pay"
+            app:layout_constraintTop_toBottomOf="@id/img_order_pay"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_order_gain"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_order_pay"
+            app:layout_constraintEnd_toStartOf="@id/img_order_comment"
+            app:layout_constraintStart_toEndOf="@id/img_order_pay"
+            app:layout_constraintTop_toTopOf="@id/img_order_pay"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/view"
+            android:layout_width="17dp"
+            android:layout_height="17dp"
+            android:layout_marginBottom="8dp"
+            android:layout_marginStart="13dp"
+            android:background="#F1661F"
+            android:gravity="center"
+            android:text="1"
+            android:textColor="#fff"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_order_gain"
+            app:layout_constraintStart_toStartOf="@id/img_order_gain"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order_gain"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="待收货"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/img_order_gain"
+            app:layout_constraintStart_toStartOf="@id/img_order_gain"
+            app:layout_constraintTop_toBottomOf="@id/img_order_gain"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_order_comment"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_order_pay"
+            app:layout_constraintEnd_toStartOf="@id/img_order_complete"
+            app:layout_constraintStart_toEndOf="@id/img_order_gain"
+            app:layout_constraintTop_toTopOf="@id/img_order_pay"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order_comment"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="待评价"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/img_order_comment"
+            app:layout_constraintStart_toStartOf="@id/img_order_comment"
+            app:layout_constraintTop_toBottomOf="@id/img_order_comment"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_order_complete"
+            android:layout_width="23dp"
+            android:layout_height="20dp"
+            android:layout_marginEnd="33dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_order_pay"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/img_order_comment"
+            app:layout_constraintTop_toTopOf="@id/img_order_pay"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_order_complete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="9dp"
+            android:text="退换修"
+            android:textSize="10sp"
+            app:layout_constraintEnd_toEndOf="@id/img_order_complete"
+            app:layout_constraintStart_toStartOf="@id/img_order_complete"
+            app:layout_constraintTop_toBottomOf="@id/img_order_complete"
+            />
+        <!-- 第二部分(end) -->
+
+        <View
+            android:id="@+id/line2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:layout_marginTop="13dp"
+            android:background="#e7e7e7"
+            app:layout_constraintTop_toBottomOf="@id/txt_order_pay"/>
+
+        <!-- 第三部分(start) -->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/lin3"
+            android:layout_width="1dp"
+            android:layout_height="53dp"
+            android:paddingBottom="10dp"
+            android:paddingTop="10dp"
+            android:src="#e7e7e7"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.214"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line2"/>
+
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_advertising"
+            android:layout_width="match_parent"
+            android:layout_height="101dp"
+            android:background="#CBE6E1"
+            app:layout_constraintTop_toBottomOf="@id/lin3"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="最新状态"
+            android:textColor="#767676"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@id/lin3"
+            app:layout_constraintEnd_toEndOf="@id/lin3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lin3"
+            app:layout_constraintVertical_bias="0.328"
+            />
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_status_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:maxLines="1"
+            android:text="2-25 23:35"
+            android:textColor="#767676"
+            android:textSize="9sp"
+            app:layout_constraintBottom_toBottomOf="@id/lin3"
+            app:layout_constraintEnd_toEndOf="@id/lin3"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/lin3"
+            app:layout_constraintVertical_bias="0.701"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_product"
+            android:layout_width="26dp"
+            android:layout_height="26dp"
+            android:layout_marginStart="13dp"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/lin3"
+            app:layout_constraintStart_toEndOf="@id/lin3"
+            app:layout_constraintTop_toTopOf="@id/lin3"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_status_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:maxLines="1"
+            android:text="已出库"
+            android:textColor="#F9731C"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/lin3"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintTop_toTopOf="@id/lin3"
+            app:layout_constraintVertical_bias="0.28"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_status_msg"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="13dp"
+            android:maxLines="1"
+            android:text="广州市,快件到达[广州金堂..........]"
+            android:textColor="#7E7E7E"
+            android:textSize="10sp"
+            app:layout_constraintBottom_toBottomOf="@id/lin3"
+            app:layout_constraintStart_toEndOf="@id/img_product"
+            app:layout_constraintTop_toTopOf="@id/lin3"
+            app:layout_constraintVertical_bias="0.744"/>
+        <!-- 第三部分(end) -->
+
+        <View
+            android:id="@+id/line4"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:background="#F5F5F5"
+            app:layout_constraintTop_toBottomOf="@id/img_advertising"/>
+
+        <!-- 第四部分(start) -->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_coupon"
+            android:layout_width="21dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="19dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line4"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_coupon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="优惠券"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_coupon"
+            app:layout_constraintStart_toEndOf="@id/img_coupon"
+            app:layout_constraintTop_toTopOf="@id/img_coupon"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_right"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_coupon"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_coupon"
+            />
+
+        <View
+            android:id="@+id/line5"
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="19dp"
+            android:background="#D7D7D7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_coupon"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_welfare"
+            android:layout_width="21dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="19dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line5"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_welfare"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="会员福利"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_welfare"
+            app:layout_constraintStart_toEndOf="@id/img_welfare"
+            app:layout_constraintTop_toTopOf="@id/img_welfare"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_right_welfare"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_welfare"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_welfare"
+            />
+
+        <View
+            android:id="@+id/line6"
+            android:layout_width="wrap_content"
+            android:layout_height="1px"
+            android:layout_marginStart="53dp"
+            android:layout_marginTop="19dp"
+            android:background="#D7D7D7"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/img_welfare"/>
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_wallet"
+            android:layout_width="21dp"
+            android:layout_height="16dp"
+            android:layout_marginStart="17dp"
+            android:layout_marginTop="19dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line6"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_wallet"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="我的钱包"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_wallet"
+            app:layout_constraintStart_toEndOf="@id/img_wallet"
+            app:layout_constraintTop_toTopOf="@id/img_wallet"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_right_wallet"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:layout_marginEnd="12dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_wallet"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_wallet"
+            />
+
+        <View
+            android:id="@+id/line7"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="19dp"
+            android:background="#F5F5F5"
+            app:layout_constraintTop_toBottomOf="@id/img_wallet"/>
+        <!-- 第四部分(end) -->
+
+        <!-- 第四部分另一种适配模式(start) -->
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_te"
+            android:layout_width="21dp"
+            android:layout_height="16dp"
+            android:layout_marginTop="19dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.05"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line7"/>
+
+        <android.support.v7.widget.AppCompatTextView
+            android:id="@+id/txt_te"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="我的钱包"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/img_te"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.173"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_te"
+            />
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/img_right_te"
+            android:layout_width="9dp"
+            android:layout_height="15dp"
+            android:scaleType="fitXY"
+            android:src="#80B548"
+            app:layout_constraintBottom_toBottomOf="@id/img_te"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.966"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/img_te"
+            />
+
+        <View
+            android:id="@+id/line8"
+            android:layout_width="match_parent"
+            android:layout_height="8dp"
+            android:layout_marginTop="19dp"
+            android:background="#F5F5F5"
+            app:layout_constraintTop_toBottomOf="@id/img_te"/>
+        <!-- 第四部分另一种适配模式(end) -->
+
+
+    </android.support.constraint.ConstraintLayout>
+
+</ScrollView>
