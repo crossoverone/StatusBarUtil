@@ -12,16 +12,20 @@ import android.view.WindowManager;
 
 public class StatusUtil {
 
-    /** Use default color {@link #defaultColor_21} between 5.0 and 6.0.*/
+    /**
+     * Use default color {@link #defaultColor_21} between 5.0 and 6.0.
+     */
     public static final int USE_DEFAULT_COLOR = -1;
 
-    /** Use color {@link #setUseStatusBarColor} between 5.0 and 6.0.*/
+    /**
+     * Use color {@link #setUseStatusBarColor} between 5.0 and 6.0.
+     */
     public static final int USE_CUR_COLOR = -2;
 
     /**
      * Default status bar color between 21(5.0) and 23(6.0).
      * If status color is white, you can set the color outermost.
-     * */
+     */
     public static int defaultColor_21 = Color.parseColor("#33000000");
 
     /**
@@ -38,10 +42,10 @@ public class StatusUtil {
      * It must be more than 21(5.0) to be valid.
      * Setting the status bar color.Supper between 21 and 23.
      *
-     * @param color         Status color.
-     * @param surfaceColor  Between 21 and 23,if surfaceColor == {@link #USE_DEFAULT_COLOR},the status color is defaultColor_21,
-     *                      else if surfaceColor == {@link #USE_CUR_COLOR}, the status color is color,
-     *                      else the status color is surfaceColor.
+     * @param color        Status color.
+     * @param surfaceColor Between 21 and 23,if surfaceColor == {@link #USE_DEFAULT_COLOR},the status color is defaultColor_21,
+     *                     else if surfaceColor == {@link #USE_CUR_COLOR}, the status color is color,
+     *                     else the status color is surfaceColor.
      */
     public static void setUseStatusBarColor(Activity activity, @ColorInt int color, int surfaceColor) {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
@@ -58,7 +62,7 @@ public class StatusUtil {
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
             // after 21(5.0)
             setUseStatusBarColor(activity, Color.TRANSPARENT);
-        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT){
+        } else if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
             // between 19(4.4) and 21(5.0)
             activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
         }
@@ -70,9 +74,9 @@ public class StatusUtil {
      * @param isTransparent Whether or not to invade the status bar?
      *                      If true, will invade the status bar,
      *                      otherwise, fits system windows.
-     * @param isBlack Whether the status bar font is set to black?
-     *                If true, the status bar font will be black,
-     *                otherwise, it is white.
+     * @param isBlack       Whether the status bar font is set to black?
+     *                      If true, the status bar font will be black,
+     *                      otherwise, it is white.
      */
     public static void setSystemStatus(Activity activity, boolean isTransparent, boolean isBlack) {
         int flag = 0;
@@ -90,12 +94,25 @@ public class StatusUtil {
             // between 19(4.4) and 21(5.0)
             if (isTransparent) {
                 activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            }else {
+            } else {
                 activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
             }
             ViewGroup contentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
             View childAt = contentView.getChildAt(0);
-            childAt.setFitsSystemWindows(!isTransparent);
+            if (childAt != null)
+                childAt.setFitsSystemWindows(!isTransparent);
+        }
+
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT && OSUtils.isEMUI3_x()) {
+            if (isTransparent) {
+                activity.getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            } else {
+                activity.getWindow().clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+            }
+            ViewGroup contentView = (ViewGroup) activity.getWindow().findViewById(Window.ID_ANDROID_CONTENT);
+            View childAt = contentView.getChildAt(0);
+            if (childAt != null)
+                childAt.setFitsSystemWindows(!isTransparent);
         }
     }
 
