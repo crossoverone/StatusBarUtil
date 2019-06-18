@@ -31,7 +31,7 @@
 
 ### 2.module的gradle ###
 	dependencies {
-	       compile 'com.github.crossoverone:StatusBarUtil:1.3.3'//会不定时更新，请及时更新
+	       compile 'com.github.crossoverone:StatusBarUtil:1.3.4'//会不定时更新，请及时更新
 	}
 
 
